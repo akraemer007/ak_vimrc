@@ -39,6 +39,9 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+" use jj for easy esc
+imap jj <Esc>
+
 " use enter to create blank line
 map <Enter> o<ESC>
 map <S-Enter> O<ESC>
