@@ -27,12 +27,12 @@ Plugin 'nelstrom/vim-markdown-preview'
 Plugin 'fholgado/minibufexpl.vim'
 Plugin 'bling/vim-airline'
 "python sytax checker
-Plugin 'nvie/vim-flake8'
+"Plugin 'nvie/vim-flake8'
 "Plugin 'vim-scripts/Pydiction'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'scrooloose/syntastic'
 
-Plugin 'ajh17/VimCompletesMe'
+"Plugin 'ajh17/VimCompletesMe'
 " easy splits
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -71,8 +71,8 @@ let g:SimpylFold_docstring_preview = 1
 set clipboard=unnamedplus
 
 "autocomplete
-let g:ycm_autoclose_preview_window_after_completion=1
-let g:ycm_path_to_python_interpreter = '/usr/bin/python'
+"let g:ycm_autoclose_preview_window_after_completion=1
+"let g:ycm_path_to_python_interpreter = '/usr/bin/python'
 
 "custom keys
 "let mapleader=" "
@@ -140,7 +140,7 @@ au BufNewFile *.py,*.pyw,*.c,*.h set fileformat=unix
 set encoding=utf-8
 
 " For full syntax highlighting:
-let python_highlight_all=1
+"let python_highlight_all=1
 syntax on
 
 " Keep indentation level from previous line:
