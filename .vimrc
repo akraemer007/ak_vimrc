@@ -17,7 +17,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'kien/ctrlp.vim'
-
+Plugin 'sjl/gundo.vim'
 "html
 "  isnowfy only compatible with python not python3
 "Plugin 'isnowfy/python-vim-instant-markdown'
@@ -38,6 +38,9 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+" bind a key to toggle gundo window
+nnoremap <C-g> :GundoToggle<CR>
 
 " use jj for easy esc
 imap jj <Esc>
@@ -86,8 +89,8 @@ set guifont=Monaco:h14
 map <C-e> :NERDTreeToggle<cr>
 imap <C-e> <esc>:NERDTreeToggle<cr>i
 let NERDTreeShowBookmarks=1
-let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.git', '\.hg', '\.svn',
-'\.bzr']let NERDTreeChDirMode=0
+let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.git', '\.hg', '\.svn', '\.bzr']
+let NERDTreeChDirMode=0
 
 "I don't like swap files
 set noswapfile
@@ -101,6 +104,27 @@ set hlsearch
 "turn on numbering
 set relativenumber
 set number
+
+" fugitive git bindings
+nnoremap <space>gs :Gstatus<CR>
+nnoremap <space>gc :Gcommit<CR>
+nnoremap <space>gd :Gvdiff<CR>
+nnoremap <space>dp :diffput<CR>
+nnoremap <space>do :diffget<CR>
+nnoremap <space>gb :Git branch<Space>
+nnoremap <space>go :Git checkout<Space>
+nnoremap <space>gb :Git branch<Space>
+nnoremap <space>gp :Git push<Space>
+nnoremap <space>gl :Git pull<Space>
+" fugitive air-line fixes
+" enable/disable fugitive/lawrencium integration >
+let g:airline#extensions#branch#enabled = 1
+" change the text for when no branch is detected >
+let g:airline#extensions#branch#empty_message = ''
+" use vcscommand.vim if available >
+let g:airline#extensions#branch#use_vcscommand = 0
+" truncate long branch names to a fixed length >
+let g:airline#extensions#branch#displayed_head_limit = 10
 
 "python with virtualenv support
 "py << EOF
@@ -160,7 +184,7 @@ set backspace=indent,eol,start
 autocmd FileType python set foldmethod=indent
 set foldlevel=99
 "use space to open folds
-nnoremap <space> za
+"nnoremap <space> za
 "----------Stop python PEP 8 stuff--------------
 
 "js stuff"
