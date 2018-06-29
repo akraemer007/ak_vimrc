@@ -82,7 +82,12 @@ call togglebg#map("<F5>")
 "colorscheme zenburn
 set guifont=Monaco:h14
 
-let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
+" nerdtree setups
+map <C-e> :NERDTreeToggle<cr>
+imap <C-e> <esc>:NERDTreeToggle<cr>i
+let NERDTreeShowBookmarks=1
+let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.git', '\.hg', '\.svn',
+'\.bzr']let NERDTreeChDirMode=0
 
 "I don't like swap files
 set noswapfile
@@ -94,6 +99,7 @@ set hlsearch
 :let @/ = ""
 
 "turn on numbering
+set relativenumber
 set number
 
 "python with virtualenv support
