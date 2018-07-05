@@ -31,6 +31,7 @@ Plugin 'bling/vim-airline'
 "Plugin 'vim-scripts/Pydiction'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'scrooloose/syntastic'
+Plugin 'drewtempelmeyer/palenight.vim'
 
 "Plugin 'ajh17/VimCompletesMe'
 " easy splits
@@ -81,9 +82,16 @@ set clipboard=unnamedplus
 "let mapleader=" "
 "map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
-call togglebg#map("<F5>")
-"colorscheme zenburn
+if (has("termguicolors"))
+	  set termguicolors
+endif
+set background=dark
+colorscheme palenight
+let g:palenight_terminal_italics=1
+
 set guifont=Monaco:h14
+"toggle color change
+call togglebg#map("<F5>")
 
 " nerdtree setups
 map <C-e> :NERDTreeToggle<cr>
@@ -153,12 +161,12 @@ au BufRead,BufNewFile *.py,*.pyw set expandtab
 au BufRead,BufNewFile *.py set softtabstop=4
 
 " Use the below highlight group when displaying bad whitespace is desired.
-highlight BadWhitespace ctermbg=red guibg=red
+"highlight BadWhitespace ctermbg=red guibg=red
 
 " Display tabs at the beginning of a line in Python mode as bad.
-au BufRead,BufNewFile *.py,*.pyw match BadWhitespace /^\t\+/
+"au BufRead,BufNewFile *.py,*.pyw match BadWhitespace /^\t\+/
 " Make trailing whitespace be flagged as bad.
-au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+"au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
 " Wrap text after a certain number of characters
 au BufRead,BufNewFile *.py,*.pyw, set textwidth=100
@@ -190,3 +198,7 @@ set foldlevel=99
 "js stuff"
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
 
+" paste
+nnoremap <F2> :set invpaste paste?<CR>
+set pastetoggle=<F2>
+set showmode
