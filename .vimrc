@@ -1,10 +1,7 @@
-"run this command if having trouble using w/ py2
-"sudo apt install vim-nox-py2
-
-"vundle
 set nocompatible
 filetype off
 
+" vundle {{{
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
@@ -33,15 +30,38 @@ Plugin 'vim-scripts/indentpython.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'drewtempelmeyer/palenight.vim'
 
-"Plugin 'ajh17/VimCompletesMe'
+"auto-completion stuff
+Plugin 'klen/rope-vim'
+""code folding
+Plugin 'tmhedberg/SimpylFold'
+"
+"Colors!!!
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'jnurmine/Zenburn'
+
+call vundle#end()
+" }}}
+
+" quick interactions {{{
 " easy splits
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-" bind a key to toggle gundo window
-nnoremap <C-g> :GundoToggle<CR>
+" autoclose parens etc
+inoremap " ""<left>
+inoremap ' ''<left>
+inoremap ( ()<left>
+inoremap [ []<left>
+inoremap { {}<left>
+inoremap {<CR> {<CR>}<ESC>O
+inoremap {;<CR> {<CR>};<ESC>O
+
+" paste
+nnoremap <F2> :set invpaste paste?<CR>
+set pastetoggle=<F2>
+set showmode
 
 " use jj for easy esc
 imap jj <Esc>
@@ -50,38 +70,16 @@ imap jj <Esc>
 map <Enter> o<ESC>
 map <S-Enter> O<ESC>
 
+" }}}
+
+" bind a key to toggle gundo window
+nnoremap <C-g> :GundoToggle<CR>
+
+" UI Config {{{
 " show a visual line under the cursor's current line
 set cursorline
 
-"auto-completion stuff
-"Plugin 'klen/python-mode'
-"Plugin 'Valloric/YouCompleteMe'
-Plugin 'klen/rope-vim'
-"Plugin 'davidhalter/jedi-vim'
-"Plugin 'ervandew/supertab'
-""code folding
-Plugin 'tmhedberg/SimpylFold'
-
-"Colors!!!
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'jnurmine/Zenburn'
-
-call vundle#end()
-
-filetype plugin indent on    " enables filetype detection
-let g:SimpylFold_docstring_preview = 1
-
-"copy to clipboard
-set clipboard=unnamedplus
-
-"autocomplete
-"let g:ycm_autoclose_preview_window_after_completion=1
-"let g:ycm_path_to_python_interpreter = '/usr/bin/python'
-
-"custom keys
-"let mapleader=" "
-"map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
-
+" colors
 if (has("termguicolors"))
 	  set termguicolors
 endif
@@ -92,6 +90,17 @@ let g:palenight_terminal_italics=1
 set guifont=Monaco:h14
 "toggle color change
 call togglebg#map("<F5>")
+"
+"turn on numbering
+set relativenumber
+set number
+
+" }}}
+
+" plugin settings{{{
+
+filetype plugin indent on    " enables filetype detection
+let g:SimpylFold_docstring_preview = 1
 
 " nerdtree setups
 map <C-e> :NERDTreeToggle<cr>
@@ -100,21 +109,9 @@ let NERDTreeShowBookmarks=1
 let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.git', '\.hg', '\.svn', '\.bzr']
 let NERDTreeChDirMode=0
 
-"I don't like swap files
-set noswapfile
-
-"set search settings
-set incsearch
-set ignorecase
-set hlsearch
-:let @/ = ""
-
-"turn on numbering
-set relativenumber
-set number
-
 " fugitive git bindings
 nnoremap <space>gs :Gstatus<CR>
+nnoremap <space>ga :Gwrite<CR>
 nnoremap <space>gc :Gcommit<CR>
 nnoremap <space>gd :Gvdiff<CR>
 nnoremap <space>dp :diffput<CR>
@@ -134,26 +131,22 @@ let g:airline#extensions#branch#use_vcscommand = 0
 " truncate long branch names to a fixed length >
 let g:airline#extensions#branch#displayed_head_limit = 10
 
-"python with virtualenv support
-"py << EOF
-"import os.path
-"import sys
-"import vim
-"if 'VIRTUA_ENV' in os.environ:
-"  project_base_dir = os.environ['VIRTUAL_ENV']
-"  sys.path.insert(0, project_base_dir)
-"  activate_this = os.path.join(project_base_dir,'bin/activate_this.py')
-"  execfile(activate_this, dict(__file__=activate_this))
-"EOF
+" }}}
 
-"it would be nice to set tag files by the active virtualenv here
-":set tags=~/mytags "tags for ctags and taglist
-"omnicomplete
-"autocmd FileType python set omnifunc=pythoncomplete#C./configure --enable-pythoninterp --with-python-config-dir=/usr/lib/python2.6/config make make installomplete
+" Misc {{{
+"copy to clipboard
+set clipboard=unnamedplus
+
+"set search settings
+set incsearch
+set ignorecase
+set hlsearch
+:let @/ = ""
+" }}}
 
 "------------Start Python PEP 8 stuff----------------
 " Number of spaces that a pre-existing tab is equal to.
-au BufRead,BufNewFile *py,*pyw,*.c,*.h set tabstop=4
+"au BufRead,BufNewFile *py,*pyw,*.c,*.h set tabstop=4
 
 "spaces for indents
 au BufRead,BufNewFile *.py,*pyw set shiftwidth=4
@@ -187,18 +180,17 @@ autocmd FileType python set autoindent
 " make backspaces more powerfull
 set backspace=indent,eol,start
 
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_check_on_open = 0                                                                                 
+let g:syntastic_check_on_wq = 0
+let g:syntastic_mode_map = {'mode':'passive'}
+nnoremap <F10> :SyntasticCheck<CR> :SyntasticToggleMode<CR> :w<CR>
 
 "Folding based on indentation:
 autocmd FileType python set foldmethod=indent
 set foldlevel=99
-"use space to open folds
-"nnoremap <space> za
 "----------Stop python PEP 8 stuff--------------
 
-"js stuff"
-autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
-
-" paste
-nnoremap <F2> :set invpaste paste?<CR>
-set pastetoggle=<F2>
-set showmode
