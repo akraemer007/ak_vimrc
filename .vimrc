@@ -34,6 +34,9 @@ Plugin 'drewtempelmeyer/palenight.vim'
 Plugin 'klen/rope-vim'
 ""code folding
 Plugin 'tmhedberg/SimpylFold'
+"writing
+Plugin 'junegunn/goyo.vim'
+Plugin 'junegunn/limelight.vim'
 "
 "Colors!!!
 Plugin 'altercation/vim-colors-solarized'
@@ -75,6 +78,11 @@ map <S-Enter> O<ESC>
 " bind a key to toggle gundo window
 nnoremap <C-g> :GundoToggle<CR>
 
+" markdown
+let g:goyo_width = 65
+autocmd! User GoyoEnter Limelight0.7
+autocmd! User GoyoLeave Limelight!
+nnoremap <Leader>w :Goyo <ENTER>
 " UI Config {{{
 " show a visual line under the cursor's current line
 set cursorline
@@ -92,9 +100,11 @@ set guifont=Monaco:h14
 call togglebg#map("<F5>")
 "
 "turn on numbering
-set relativenumber
 set number
+set relativenumber
 
+" Turn off relative numbring
+nnoremap <Leader>n :set relativenumber! number!<ENTER>
 " }}}
 
 " plugin settings{{{
