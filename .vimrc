@@ -31,7 +31,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'drewtempelmeyer/palenight.vim'
 
 "auto-completion stuff
-Plugin 'klen/rope-vim'
+"Plugin 'klen/rope-vim'
 ""code folding
 Plugin 'tmhedberg/SimpylFold'
 "writing
@@ -52,14 +52,17 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+" move through paragraphs easier
+map j gj
+map k gk
+
 " autoclose parens etc
-inoremap " ""<left>
-inoremap ' ''<left>
-inoremap ( ()<left>
-inoremap [ []<left>
-inoremap { {}<left>
-inoremap {<CR> {<CR>}<ESC>O
-inoremap {;<CR> {<CR>};<ESC>O
+" inoremap ' ''<left>
+" inoremap ( ()<left>
+" inoremap [ []<left>
+" inoremap { {}<left>
+" inoremap {<CR> {<CR>}<ESC>O
+" inoremap {;<CR> {<CR>};<ESC>O
 
 " paste
 nnoremap <F2> :set invpaste paste?<CR>
@@ -86,6 +89,11 @@ nnoremap <Leader>w :Goyo <ENTER>
 " UI Config {{{
 " show a visual line under the cursor's current line
 set cursorline
+" Makes sure lines break on whole words
+set linebreak
+" Keep cursor away from edges
+set scrolloff=3
+set foldcolumn=1
 
 " colors
 if (has("termguicolors"))
