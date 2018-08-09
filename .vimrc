@@ -41,6 +41,10 @@ Plugin 'junegunn/limelight.vim'
 "Colors!!!
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'jnurmine/Zenburn'
+"
+"nice space showing
+"Plugin 'Yggdroot/indentLine'
+":set list lcs=tab:\|\
 
 call vundle#end()
 " }}}
@@ -90,10 +94,10 @@ nnoremap <Leader>w :Goyo <ENTER>
 " show a visual line under the cursor's current line
 set cursorline
 " Makes sure lines break on whole words
-set linebreak
+"set linebreak
 " Keep cursor away from edges
 set scrolloff=3
-set foldcolumn=1
+"set foldcolumn=1 "supposed to keep cursor away from sides. Doesn't work.
 
 " colors
 if (has("termguicolors"))
@@ -180,7 +184,7 @@ au BufRead,BufNewFile *.py set softtabstop=4
 "au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
 " Wrap text after a certain number of characters
-au BufRead,BufNewFile *.py,*.pyw, set textwidth=100
+au BufRead,BufNewFile *.py,*.pyw, set textwidth=120
 
 " Use UNIX (\n) line endings.
 au BufNewFile *.py,*.pyw,*.c,*.h set fileformat=unix
