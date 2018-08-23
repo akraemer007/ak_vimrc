@@ -22,7 +22,10 @@ Plugin 'jtratner/vim-flavored-markdown'
 Plugin 'suan/vim-instant-markdown'
 Plugin 'nelstrom/vim-markdown-preview'
 Plugin 'fholgado/minibufexpl.vim'
-Plugin 'bling/vim-airline'
+"Plugin 'bling/vim-airline'
+Plugin 'itchyny/lightline.vim'
+Plugin 'itchyny/vim-gitbranch'
+
 "python sytax checker
 "Plugin 'nvie/vim-flake8'
 "Plugin 'vim-scripts/Pydiction'
@@ -134,6 +137,23 @@ let NERDTreeShowBookmarks=1
 let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.git', '\.hg', '\.svn', '\.bzr']
 let NERDTreeChDirMode=0
 
+" light line settings
+if !has('gui_running')
+	  set t_Co=256
+endif
+set noshowmode
+set laststatus=2
+let g:lightline = {
+      \'colorscheme': 'nord',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'fugitive#head'
+      \ },
+      \ }
+
 " fugitive git bindings
 nnoremap <space>gs :Gstatus<CR>
 nnoremap <space>ga :Gwrite<CR>
@@ -148,13 +168,13 @@ nnoremap <space>gp :Git push<Space>
 nnoremap <space>gl :Git pull<Space>
 " fugitive air-line fixes
 " enable/disable fugitive/lawrencium integration >
-let g:airline#extensions#branch#enabled = 1
+" let g:airline#extensions#branch#enabled = 1
 " change the text for when no branch is detected >
-let g:airline#extensions#branch#empty_message = ''
+" let g:airline#extensions#branch#empty_message = ''
 " use vcscommand.vim if available >
-let g:airline#extensions#branch#use_vcscommand = 0
+" let g:airline#extensions#branch#use_vcscommand = 0
 " truncate long branch names to a fixed length >
-let g:airline#extensions#branch#displayed_head_limit = 10
+" let g:airline#extensions#branch#displayed_head_limit = 10
 
 " }}}
 
