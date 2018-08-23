@@ -38,6 +38,7 @@ Plugin 'junegunn/goyo.vim'
 Plugin 'junegunn/limelight.vim'
 "
 "Colors!!!
+Plugin 'arcticicestudio/nord-vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'drewtempelmeyer/palenight.vim'
 Plugin 'jnurmine/Zenburn'
@@ -100,13 +101,14 @@ set cursorline
 set scrolloff=3
 "set foldcolumn=1 "supposed to keep cursor away from sides. Doesn't work.
 
-colors
+" colors
 if (has("termguicolors"))
-	  set termguicolors
+    set termguicolors
 endif
-set background=dark
-colorscheme palenight
-let g:palenight_terminal_italics=1
+" set background=dark
+let g:nord_italic = 1
+let g:nord_italic_comments = 1
+colorscheme nord
 
 set guifont=Monaco:h14
 "toggle color change
