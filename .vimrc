@@ -28,7 +28,6 @@ Plugin 'bling/vim-airline'
 "Plugin 'vim-scripts/Pydiction'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'scrooloose/syntastic'
-Plugin 'drewtempelmeyer/palenight.vim'
 
 "auto-completion stuff
 "Plugin 'klen/rope-vim'
@@ -40,10 +39,12 @@ Plugin 'junegunn/limelight.vim'
 "
 "Colors!!!
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'drewtempelmeyer/palenight.vim'
 Plugin 'jnurmine/Zenburn'
+Plugin 'liuchengxu/space-vim-dark'
 "
 "nice space showing
-"Plugin 'Yggdroot/indentLine'
+Plugin 'Yggdroot/indentLine'
 ":set list lcs=tab:\|\
 
 call vundle#end()
@@ -99,7 +100,7 @@ set cursorline
 set scrolloff=3
 "set foldcolumn=1 "supposed to keep cursor away from sides. Doesn't work.
 
-" colors
+colors
 if (has("termguicolors"))
 	  set termguicolors
 endif
