@@ -10,6 +10,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'romainl/vim-cool'
 "git interface
 Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
 "filesystem
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
@@ -82,8 +83,8 @@ set showmode
 imap jj <Esc>
 
 " use enter to create blank line
-map <Enter> o<ESC>
-map <S-Enter> O<ESC>
+" map <Enter> o<ESC>
+" map <S-Enter> O<ESC>
 
 " }}}
 
@@ -108,9 +109,11 @@ set scrolloff=3
 if (has("termguicolors"))
     set termguicolors
 endif
-" set background=dark
+
+" nord settings
 let g:nord_italic = 1
 let g:nord_italic_comments = 1
+let g:nord_uniform_diff_background = 1
 colorscheme nord
 
 set guifont=Monaco:h14
@@ -123,6 +126,9 @@ set relativenumber
 
 " Turn off relative numbring
 nnoremap <Leader>n :set relativenumber! number!<ENTER>
+
+" allow hidden buffers w/out saving
+set hidden
 " }}}
 
 " plugin settings{{{
@@ -150,10 +156,19 @@ let g:lightline = {
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
       \ },
       \ 'component_function': {
-      \   'gitbranch': 'fugitive#head'
+      \   'gitbranch': 'fugitive#head',
+      \   'fileformat': 'LightlineFileformat',
+      \   'filetype': 'LightlineFiletype'
       \ },
       \ }
 
+function! LightlineFileformat()
+  return winwidth(0) > 70 ? &fileformat : ''
+endfunction
+
+function! LightlineFiletype()
+  return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
+endfunction
 " fugitive git bindings
 nnoremap <space>gs :Gstatus<CR>
 nnoremap <space>ga :Gwrite<CR>
