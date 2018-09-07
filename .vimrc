@@ -129,6 +129,10 @@ nnoremap <Leader>n :set relativenumber! number!<ENTER>
 
 " allow hidden buffers w/out saving
 set hidden
+
+" delete current buffer
+nmap <silent> <leader>d :bp\|bd #<CR>
+
 " }}}
 
 " plugin settings{{{
