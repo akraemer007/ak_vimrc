@@ -38,6 +38,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-surround'
 "adds bracket movement
 Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-repeat'
 "auto-completion stuff
 "Plugin 'klen/rope-vim'
 ""code folding
