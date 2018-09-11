@@ -22,6 +22,7 @@ Plugin 'sjl/gundo.vim'
 Plugin 'jtratner/vim-flavored-markdown'
 Plugin 'suan/vim-instant-markdown'
 Plugin 'nelstrom/vim-markdown-preview'
+"see buffers
 Plugin 'fholgado/minibufexpl.vim'
 "Plugin 'bling/vim-airline'
 Plugin 'itchyny/lightline.vim'
@@ -33,6 +34,10 @@ Plugin 'itchyny/vim-gitbranch'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'scrooloose/syntastic'
 
+"surround with quotes or paren w/ ys"
+Plugin 'tpope/vim-surround'
+"adds bracket movement
+Plugin 'tpope/vim-unimpaired'
 "auto-completion stuff
 "Plugin 'klen/rope-vim'
 ""code folding
