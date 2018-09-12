@@ -61,6 +61,9 @@ Plugin 'Yggdroot/indentLine'
 call vundle#end()
 " }}}
 
+" set leader
+let mapleader = "\<Space>"
+
 " quick interactions {{{
 " easy splits
 nnoremap <C-J> <C-W><C-J>
@@ -124,7 +127,7 @@ colorscheme nord
 
 set guifont=Monaco:h14
 "toggle color change
-call togglebg#map("<F5>")
+call togglebg#map("<F9>")
 "
 "turn on numbering
 set number
@@ -180,17 +183,17 @@ function! LightlineFiletype()
   return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
 endfunction
 " fugitive git bindings
-nnoremap <space>gs :Gstatus<CR>
-nnoremap <space>ga :Gwrite<CR>
-nnoremap <space>gc :Gcommit<CR>
-nnoremap <space>gd :Gvdiff<CR>
-nnoremap <space>dp :diffput<CR>
-nnoremap <space>do :diffget<CR>
-nnoremap <space>gb :Git branch<Space>
-nnoremap <space>go :Git checkout<Space>
-nnoremap <space>gb :Git branch<Space>
-nnoremap <space>gp :Git push<Space>
-nnoremap <space>gl :Git pull<Space>
+nnoremap <Leader>gs :Gstatus<CR>
+nnoremap <Leader>ga :Gwrite<CR>
+nnoremap <Leader>gc :Gcommit<CR>
+nnoremap <Leader>gd :Gvdiff<CR>
+nnoremap <Leader>dp :diffput<CR>
+nnoremap <Leader>do :diffget<CR>
+nnoremap <Leader>gb :Git branch<Space>
+nnoremap <Leader>go :Git checkout<Space>
+nnoremap <Leader>gb :Git branch<Space>
+nnoremap <Leader>gp :Git push<Space>
+nnoremap <Leader>gl :Git pull<Space>
 " fugitive air-line fixes
 " enable/disable fugitive/lawrencium integration >
 " let g:airline#extensions#branch#enabled = 1
