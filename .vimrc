@@ -267,3 +267,6 @@ autocmd FileType python set foldmethod=indent
 set foldlevel=99
 "----------Stop python PEP 8 stuff--------------
 
+" Terminal emulation settings
+tnoremap <Esc> <C-\><C-n>
+nnoremap <Leader>t :vsplit +terminal |set norelativenumber nonumber<ENTER>
