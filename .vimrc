@@ -107,7 +107,7 @@ autocmd! User GoyoLeave Limelight!
 nnoremap <Leader>w :Goyo <ENTER>
 " UI Config {{{
 " show a visual line under the cursor's current line
-set cursorline
+" set cursorline
 " Makes sure lines break on whole words
 "set linebreak
 " Keep cursor away from edges
