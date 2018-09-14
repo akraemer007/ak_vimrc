@@ -269,4 +269,5 @@ set foldlevel=99
 
 " Terminal emulation settings
 tnoremap <Esc> <C-\><C-n>
-nnoremap <Leader>t :vsplit +terminal |set norelativenumber nonumber<ENTER>
+nnoremap <Leader>t :vsplit +terminal<CR> :set norelativenumber nonumber<CR>
+"|:startinsert<CR>
