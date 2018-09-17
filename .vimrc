@@ -36,6 +36,8 @@ Plugin 'scrooloose/syntastic'
 
 "surround with quotes or paren w/ ys"
 Plugin 'tpope/vim-surround'
+"comment easily w/ gc
+Plugin 'tpope/vim-commentary'
 "adds bracket movement
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-repeat'
