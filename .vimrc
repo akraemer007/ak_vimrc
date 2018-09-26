@@ -5,68 +5,58 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'VundleVim/Vundle.vim'
-"unhighight after search
-Plugin 'romainl/vim-cool'
+Plugin 'VundleVim/Vundle.vim'             "plugin manager
 "git interface
-Plugin 'tpope/vim-fugitive'
-Plugin 'airblade/vim-gitgutter'
+Plugin 'tpope/vim-fugitive'               "git tools for vim
+Plugin 'airblade/vim-gitgutter'           "shows changes since last add
 "filesystem
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'kien/ctrlp.vim'
-Plugin 'sjl/gundo.vim'
-"html
-"  isnowfy only compatible with python not python3
-"Plugin 'isnowfy/python-vim-instant-markdown'
+"markdown
 Plugin 'jtratner/vim-flavored-markdown'
 Plugin 'suan/vim-instant-markdown'
 Plugin 'nelstrom/vim-markdown-preview'
-"see buffers
-Plugin 'fholgado/minibufexpl.vim'
-"Plugin 'bling/vim-airline'
-Plugin 'itchyny/lightline.vim'
-Plugin 'itchyny/vim-gitbranch'
-
-"python sytax checker
-"Plugin 'nvie/vim-flake8'
-"Plugin 'vim-scripts/Pydiction'
-Plugin 'vim-scripts/indentpython.vim'
-Plugin 'scrooloose/syntastic'
-
-"surround with quotes or paren w/ ys"
-Plugin 'tpope/vim-surround'
-"comment easily w/ gc
-Plugin 'tpope/vim-commentary'
-"adds bracket movement
-Plugin 'tpope/vim-unimpaired'
-Plugin 'tpope/vim-repeat'
-"auto-completion stuff
-"Plugin 'klen/rope-vim'
-""code folding
-Plugin 'tmhedberg/SimpylFold'
+"info bars
+Plugin 'fholgado/minibufexpl.vim'         "see buffers
+Plugin 'itchyny/lightline.vim'            "ligtline bottom bar
+Plugin 'itchyny/vim-gitbranch'            "lightline git
+"misc settings
+Plugin 'romainl/vim-cool'                 "unhighight after search
+Plugin 'scrooloose/syntastic'             "sytax checking
+Plugin 'Yggdroot/indentLine'              "nice indents
+Plugin 'tpope/vim-surround'               "surround with quotes or paren w/ ys
+Plugin 'tpope/vim-commentary'             "comment easily w/ gc
+Plugin 'tpope/vim-unimpaired'             "adds bracket movement
+Plugin 'tpope/vim-repeat'                 "repeats plugin actions
 "writing
-Plugin 'junegunn/goyo.vim'
-Plugin 'junegunn/limelight.vim'
-"
+Plugin 'junegunn/goyo.vim'                "activate writing mode
+Plugin 'junegunn/limelight.vim'           "typewriter mode like ulysses
+"tmux
+Plugin 'christoomey/vim-tmux-navigator'   "navigate tmux panes w/vim bindings
+Plugin 'epeli/slimux'                     "repl
 "Colors!!!
 Plugin 'arcticicestudio/nord-vim'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'drewtempelmeyer/palenight.vim'
-Plugin 'jnurmine/Zenburn'
-Plugin 'liuchengxu/space-vim-dark'
-"
-"nice space showing
-Plugin 'Yggdroot/indentLine'
-":set list lcs=tab:\|\
-
+"Plugin 'drewtempelmeyer/palenight.vim'
+"Plugin 'jnurmine/Zenburn'
+"Plugin 'liuchengxu/space-vim-dark'
+"unused
+"python sytax checker
+"Plugin 'nvie/vim-flake8'
+"Plugin 'vim-scripts/Pydiction'
+" Plugin 'vim-scripts/indentpython.vim' 
+"Plugin 'kien/ctrlp.vim'
+"Plugin 'sjl/gundo.vim'
+"html
+" isnowfy only compatible with python not python3
+"Plugin 'isnowfy/python-vim-instant-markdown'
 call vundle#end()
 " }}}
 
+" quick interactions {{{
 " set leader
 let mapleader = "\<Space>"
 
-" quick interactions {{{
 " easy splits
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -77,14 +67,6 @@ nnoremap <C-H> <C-W><C-H>
 map j gj
 map k gk
 
-" autoclose parens etc
-" inoremap ' ''<left>
-" inoremap ( ()<left>
-" inoremap [ []<left>
-" inoremap { {}<left>
-" inoremap {<CR> {<CR>}<ESC>O
-" inoremap {;<CR> {<CR>};<ESC>O
-
 " paste
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
@@ -92,26 +74,13 @@ set showmode
 
 " use jj for easy esc
 imap jj <Esc>
-
-" use enter to create blank line
-" map <Enter> o<ESC>
-" map <S-Enter> O<ESC>
-
 " }}}
 
-" bind a key to toggle gundo window
-nnoremap <C-g> :GundoToggle<CR>
-
-" markdown
-let g:goyo_width = 65
-autocmd! User GoyoEnter Limelight0.7
-autocmd! User GoyoLeave Limelight!
-nnoremap <Leader>w :Goyo <ENTER>
 " UI Config {{{
 " show a visual line under the cursor's current line
 " set cursorline
 " Makes sure lines break on whole words
-"set linebreak
+set linebreak
 " Keep cursor away from edges
 set scrolloff=3
 "set foldcolumn=1 "supposed to keep cursor away from sides. Doesn't work.
@@ -124,17 +93,16 @@ endif
 " nord settings
 let g:nord_italic = 1
 let g:nord_italic_comments = 1
-let g:nord_uniform_diff_background = 1
+"let g:nord_uniform_diff_background = 1
 colorscheme nord
 
 set guifont=Monaco:h14
 "toggle color change
 call togglebg#map("<F9>")
-"
+
 "turn on numbering
 set number
 set relativenumber
-
 " Turn off relative numbring
 nnoremap <Leader>n :set relativenumber! number!<ENTER>
 
@@ -143,7 +111,6 @@ set hidden
 
 " delete current buffer
 nmap <silent> <leader>d :bp\|bd #<CR>
-
 " }}}
 
 " plugin settings{{{
@@ -157,6 +124,12 @@ imap <C-e> <esc>:NERDTreeToggle<cr>i
 let NERDTreeShowBookmarks=1
 let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.git', '\.hg', '\.svn', '\.bzr']
 let NERDTreeChDirMode=0
+
+" writing mode
+let g:goyo_width = 65
+autocmd! User GoyoEnter Limelight0.7
+autocmd! User GoyoLeave Limelight!
+nnoremap <Leader>w :Goyo <ENTER>
 
 " light line settings
 if !has('gui_running')
@@ -196,16 +169,11 @@ nnoremap <Leader>go :Git checkout<Space>
 nnoremap <Leader>gb :Git branch<Space>
 nnoremap <Leader>gp :Git push<Space>
 nnoremap <Leader>gl :Git pull<Space>
-" fugitive air-line fixes
-" enable/disable fugitive/lawrencium integration >
-" let g:airline#extensions#branch#enabled = 1
-" change the text for when no branch is detected >
-" let g:airline#extensions#branch#empty_message = ''
-" use vcscommand.vim if available >
-" let g:airline#extensions#branch#use_vcscommand = 0
-" truncate long branch names to a fixed length >
-" let g:airline#extensions#branch#displayed_head_limit = 10
 
+"slimux -- use ctrl-c to repl
+nnoremap <C-c><C-c> :SlimuxREPLSendLine<CR> 
+vnoremap <C-c><C-c> :SlimuxREPLSendLine<CR>
+nnoremap <C-c><C-v> :SlimuxREPLConfigure<CR>
 " }}}
 
 " Misc {{{
@@ -217,6 +185,7 @@ set incsearch
 set ignorecase
 set hlsearch
 :let @/ = ""
+":set list lcs=tab:\|\                     "nice space showing
 " }}}
 
 "------------Start Python PEP 8 stuff----------------
@@ -267,6 +236,8 @@ nnoremap <F10> :SyntasticCheck<CR> :SyntasticToggleMode<CR> :w<CR>
 "Folding based on indentation:
 autocmd FileType python set foldmethod=indent
 set foldlevel=99
+
+let g:python3_host_prog = '/usr/anaconda2/envs/py36/bin/python3'
 "----------Stop python PEP 8 stuff--------------
 
 " Terminal emulation settings
