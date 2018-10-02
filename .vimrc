@@ -31,9 +31,11 @@ Plugin 'tpope/vim-repeat'                 "repeats plugin actions
 "writing
 Plugin 'junegunn/goyo.vim'                "activate writing mode
 Plugin 'junegunn/limelight.vim'           "typewriter mode like ulysses
+"repl
+Plugin 'vigemus/iron.nvim'                "repl
 "tmux
-Plugin 'christoomey/vim-tmux-navigator'   "navigate tmux panes w/vim bindings
-Plugin 'epeli/slimux'                     "repl
+" Plugin 'christoomey/vim-tmux-navigator'   "navigate tmux panes w/vim bindings
+" Plugin 'epeli/slimux'                     "repl
 "Colors!!!
 Plugin 'arcticicestudio/nord-vim'
 Plugin 'altercation/vim-colors-solarized'
@@ -79,10 +81,10 @@ imap jj <Esc>
 " UI Config {{{
 " show a visual line under the cursor's current line
 " set cursorline
-" Makes sure lines break on whole words
-set linebreak
 " Keep cursor away from edges
 set scrolloff=3
+" Makes sure lines break on whole words
+set linebreak
 "set foldcolumn=1 "supposed to keep cursor away from sides. Doesn't work.
 
 " colors
@@ -179,12 +181,13 @@ nnoremap <C-c><C-v> :SlimuxREPLConfigure<CR>
 " Misc {{{
 "copy to clipboard
 set clipboard=unnamedplus
-
+set mouse=v
 "set search settings
 set incsearch
 set ignorecase
 set hlsearch
 :let @/ = ""
+
 ":set list lcs=tab:\|\                     "nice space showing
 " }}}
 
