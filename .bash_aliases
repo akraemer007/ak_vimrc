@@ -1,7 +1,25 @@
-alias ghelp='less ~/.bash_aliases'
+export TERM="screen-256color"
+
+# some more ls aliases
+# alias ll='ls -alF'
+# alias la='ls -A'
+# alias l='ls -CF'
+alias jp='source activate py36;  jupyter notebook --no-browser --ip=10.11.0.29 --port=8989 &'
+alias tjp='tmux new -d -s jupyter; tmux send-keys -t jupyter "jp" ENTER; tmux a -t jupyter;'
+alias mdb='mclient -h 10.11.0.34 -u dw -d dw'
+alias mdbp='mclient -h 10.11.0.36 -u dw -d dw'
+alias cpy='cd ~/other_projects/copyright_insertion/ && python insert_copyright.py'
+alias py3='source activate py36'
+alias vvim='nvim -u ~/ak_vimrc/.vimrc'
+alias viim='set -o vi'
+alias wdir='wdir=`pwd`'
+alias prod_data='cd /scratch/tf/production'
+alias tmux_dev='sh ~/ak_vimrc/start_tmux.sh'
 # ----------------------
 # Git Aliases
 # ----------------------
+alias ghelp='less ~/.bash_aliases'
+
 alias ga='git add'
 alias gaa='git add .'
 alias gaaa='git add --all'
@@ -42,3 +60,4 @@ alias gsts='git stash save'
 # ----------------------
 # Git log find by commit message
 function glf() { git log --all --grep="$1"; }
+
