@@ -1,4 +1,5 @@
 #!/bin/sh 
+# Script to open tmux per my preferences
 
 # check if session exists
 tmux has-session -t dev
@@ -17,7 +18,7 @@ tmux send-keys "py3" C-m
 
 # create lower right pane w/ python 3 in scratch folder
 tmux splitw -v
-tmux send-keys "py3;cd /scratch" C-m
+tmux send-keys "py3;cd /scratch/tf/production/" C-m
 
 # tmux selectp -t 1 # select pane 1
 fi
