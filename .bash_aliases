@@ -1,5 +1,12 @@
 export TERM="screen-256color"
 
+# use for git enabled terminal prompt
+# export GIT_PS1_SHOWDIRTYSTATE=1
+# '\u' adds the name of the current user to the prompt
+# '\$(__git_ps1)' adds git-related stuff
+# '\W' adds the name of the current directory
+export PS1="\[\033[01;32m\]\u\[\033[00m\]-> \[\033[01;34m\]\W\[\033[01;33m\]\$(__git_ps1)\[\033[00m\] $ "
+
 # some more ls aliases
 # alias ll='ls -alF'
 # alias la='ls -A'
