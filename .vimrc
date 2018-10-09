@@ -34,7 +34,7 @@ Plugin 'junegunn/limelight.vim'           "typewriter mode like ulysses
 "repl
 Plugin 'vigemus/iron.nvim'                "repl
 "tmux
-" Plugin 'christoomey/vim-tmux-navigator'   "navigate tmux panes w/vim bindings
+Plugin 'christoomey/vim-tmux-navigator'   "navigate tmux panes w/vim bindings
 " Plugin 'epeli/slimux'                     "repl
 "Colors!!!
 Plugin 'arcticicestudio/nord-vim'
@@ -89,6 +89,9 @@ set linebreak
 " colors
 if (has("termguicolors"))
     set termguicolors
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+    set t_Co=256
 endif
 
 " nord settings
@@ -133,9 +136,9 @@ autocmd! User GoyoLeave Limelight!
 nnoremap <Leader>w :Goyo <ENTER>
 
 " light line settings
-if !has('gui_running')
-	  set t_Co=256
-endif
+" if !has('gui_running')
+" set t_Co=256
+" endif
 set noshowmode
 set laststatus=2
 let g:lightline = {
