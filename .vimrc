@@ -31,8 +31,6 @@ Plugin 'tpope/vim-repeat'                 "repeats plugin actions
 "writing
 Plugin 'junegunn/goyo.vim'                "activate writing mode
 Plugin 'junegunn/limelight.vim'           "typewriter mode like ulysses
-"repl
-Plugin 'vigemus/iron.nvim'                "repl
 "tmux
 Plugin 'christoomey/vim-tmux-navigator'   "navigate tmux panes w/vim bindings
 " Plugin 'epeli/slimux'                     "repl
