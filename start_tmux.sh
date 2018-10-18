@@ -6,7 +6,7 @@ tmux has-session -t dev
 if [ $? != 0 ]
 then
 tmux new-session -d -s dev -n vvim
-
+sleep 1
 tmux selectp -t 1 # name pane 1
 tmux send-keys "vvim" C-m
 

@@ -33,7 +33,7 @@ Plugin 'junegunn/goyo.vim'                "activate writing mode
 Plugin 'junegunn/limelight.vim'           "typewriter mode like ulysses
 "tmux
 Plugin 'christoomey/vim-tmux-navigator'   "navigate tmux panes w/vim bindings
-" Plugin 'epeli/slimux'                     "repl
+Plugin 'epeli/slimux'                     "repl
 "Colors!!!
 Plugin 'arcticicestudio/nord-vim'
 Plugin 'altercation/vim-colors-solarized'
