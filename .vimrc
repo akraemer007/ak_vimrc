@@ -173,9 +173,11 @@ nnoremap <Leader>gp :Git push<Space>
 nnoremap <Leader>gl :Git pull<Space>
 
 "slimux -- use ctrl-c to repl
-nnoremap <C-c><C-c> :SlimuxREPLSendLine<CR> 
-vnoremap <C-c><C-c> :SlimuxREPLSendLine<CR>
-nnoremap <C-c><C-v> :SlimuxREPLConfigure<CR>
+map <Leader>s :SlimuxREPLSendLine<CR>
+vmap <Leader>s :SlimuxREPLSendSelection<CR>
+map <Leader>b :SlimuxREPLSendBuffer<CR>
+map <Leader>a :SlimuxShellLast<CR>
+map <Leader>k :SlimuxSendKeysLast<CR>
 " }}}
 
 " Misc {{{
