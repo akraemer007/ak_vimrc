@@ -37,8 +37,10 @@ Plugin 'epeli/slimux'                     "repl
 "Colors!!!
 Plugin 'arcticicestudio/nord-vim'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'morhetz/gruvbox'
+Plugin 'shinchu/lightline-gruvbox.vim'
 "Plugin 'drewtempelmeyer/palenight.vim'
-"Plugin 'jnurmine/Zenburn'
+Plugin 'jnurmine/Zenburn'
 "Plugin 'liuchengxu/space-vim-dark'
 "unused
 "python sytax checker
@@ -84,6 +86,9 @@ set scrolloff=3
 " Makes sure lines break on whole words
 set linebreak
 
+" show json quotes
+set conceallevel=0
+
 " colors
 if (has("termguicolors"))
     set termguicolors
@@ -95,8 +100,12 @@ endif
 " nord settings
 let g:nord_italic = 1
 let g:nord_italic_comments = 1
-"let g:nord_uniform_diff_background = 1
-colorscheme nord
+let g:nord_uniform_diff_background = 1
+" colorscheme nord
+
+" set background=dark    " Setting dark mode
+" colorscheme gruvbox
+" colorscheme zenburn
 
 set guifont=Monaco:h14
 "toggle color change
@@ -139,8 +148,8 @@ nnoremap <Leader>w :Goyo <ENTER>
 " endif
 set noshowmode
 set laststatus=2
+      " \'colorscheme': 'nord',
 let g:lightline = {
-      \'colorscheme': 'nord',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
@@ -151,6 +160,9 @@ let g:lightline = {
       \   'filetype': 'LightlineFiletype'
       \ },
       \ }
+" let g:lightline.colorscheme = 'nord'
+let g:lightline.colorscheme = 'gruvbox'
+
 
 function! LightlineFileformat()
   return winwidth(0) > 70 ? &fileformat : ''
