@@ -101,7 +101,7 @@ endif
 let g:nord_italic = 1
 let g:nord_italic_comments = 1
 let g:nord_uniform_diff_background = 1
-" colorscheme nord
+colorscheme nord
 
 " set background=dark    " Setting dark mode
 " colorscheme gruvbox
@@ -160,8 +160,8 @@ let g:lightline = {
       \   'filetype': 'LightlineFiletype'
       \ },
       \ }
-" let g:lightline.colorscheme = 'nord'
-let g:lightline.colorscheme = 'gruvbox'
+let g:lightline.colorscheme = 'nord'
+" let g:lightline.colorscheme = 'gruvbox'
 
 
 function! LightlineFileformat()
