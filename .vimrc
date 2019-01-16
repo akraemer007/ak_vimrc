@@ -12,6 +12,8 @@ Plugin 'airblade/vim-gitgutter'           "shows changes since last add
 "filesystem
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
+"editing
+Plugin 'ambv/black'
 "markdown
 Plugin 'jtratner/vim-flavored-markdown'
 Plugin 'suan/vim-instant-markdown'
