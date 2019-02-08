@@ -18,6 +18,10 @@ Plugin 'ambv/black'
 Plugin 'jtratner/vim-flavored-markdown'
 Plugin 'suan/vim-instant-markdown'
 Plugin 'nelstrom/vim-markdown-preview'
+"json
+Plugin 'elzr/vim-json'
+"org-mode esque
+Plugin 'vimoutliner/vimoutliner'
 "info bars
 Plugin 'fholgado/minibufexpl.vim'         "see buffers
 Plugin 'itchyny/lightline.vim'            "ligtline bottom bar
@@ -89,7 +93,7 @@ set scrolloff=3
 set linebreak
 
 " show json quotes
-set conceallevel=0
+let g:vim_json_syntax_conceal = 0
 
 " colors
 if (has("termguicolors"))
@@ -127,6 +131,9 @@ nmap <silent> <leader>d :bp\|bd #<CR>
 " }}}
 
 " plugin settings{{{
+
+" black default line length
+let g:black_linelength = 120
 
 filetype plugin indent on    " enables filetype detection
 let g:SimpylFold_docstring_preview = 1
