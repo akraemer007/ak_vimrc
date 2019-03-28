@@ -13,6 +13,8 @@ export PS1="\[\033[01;32m\]\u\[\033[00m\]-> \[\033[01;34m\]\W\[\033[01;33m\]\$(_
 # alias l='ls -CF'
 alias jp='source activate py36;  jupyter notebook --no-browser --ip=10.11.0.29 --port=8989 &'
 alias tjp='tmux new -d -s jupyter; tmux send-keys -t jupyter "jp" ENTER; tmux a -t jupyter;'
+alias sjp='source activate py36; pyspark &'
+alias stjp='tmux new -d -s pyjupyter; tmux send-keys -t pyjupyter "sjp" ENTER; tmux a -t pyjupyter;'
 alias mdb='mclient -h 10.11.0.34 -u dw -d dw'
 alias mdbp='mclient -h 10.11.0.36 -u dw -d dw'
 alias cpy='cd ~/other_projects/copyright_insertion/ && python insert_copyright.py'
